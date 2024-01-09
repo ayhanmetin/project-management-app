@@ -1,33 +1,38 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import NewProject from './components/NewProject.jsx'
+import NoProjectSelected from './components/NoProjectSelected.jsx'
+import SideBar from './components/SideBar.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [projectsState, setProjectsState] = useState({
+    selectedProject: undefined, //initial
+    projects: [], //we'll add projects
+  })
+
+  function handleStartAddProject() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState, //spreading the old state
+        selectedProject: null, //null means adding new project
+      }
+    })
+  }
+
+  let content;
+
+  if (projectsState.selectedProject === null) {
+    content = <NewProject />
+  } else if (projectsState.selectedProject === undefined) {
+    content = <NoProjectSelected onStartAddProject={handleStartAddProject} />
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="h-screen my-8 flex gap-8">
+        <SideBar onStartAddProject={handleStartAddProject} />
+        {content}
+      </main>
     </>
   )
 }
