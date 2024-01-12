@@ -18,7 +18,7 @@ This is a simple project management app built using React. It allows you to add,
 ## Live demo
 
 ```
-git clone <repository-url>
+https://project-management-one-amber.vercel.app/
 ```
 
 ## Installation
