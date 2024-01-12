@@ -37,7 +37,7 @@ function NewProject({ onAdd, onCancel }) {
         <h2 className="text-xl font-bold text-stone-700 my-4">Invalid Input</h2>
         <p className="text-stone-600 mb-4">Looks like you forgot to enter a value!</p>
         <p className="text-stone-600 mb-4">
-          Make sure you provide a valid value for every input.
+          Make sure you provide a valid value for every input!
         </p>
       </Modal>
       <div className="w-[35rem] mt-16">
