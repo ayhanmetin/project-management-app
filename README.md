@@ -1,6 +1,6 @@
 # Project Management App
 
-This is a simple project management app built using React. It allows you to add, delete, and select projects and tasks.
+This is a simple project management app built using React and styled with TailWind CSS. It allows you to add, delete, and select projects and tasks.
 
 ## Features
 
